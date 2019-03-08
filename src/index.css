@@ -1,0 +1,38 @@
+body {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.heading {
+    background-color: purple;
+    color: whitesmoke;
+    padding: 0.2em 0.1em;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.content {
+    padding: 10px;
+}
+
+#history {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item {
+    margin: 10px;
+    width: 250px;
+    border: 1px solid lightgray;
+}
+
+.item .title {
+    border-bottom: 1px solid lightgray;
+    font-weight: bold;
+}
+
+.item .author {
+    border-top: 1px solid lightgray;
+    font-style: italic;
+}
