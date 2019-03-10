@@ -1,0 +1,53 @@
+{
+  "name": "pwa-bare-poc",
+  "short_name": "pbp",
+  "lang": "en",
+  "theme_color": "#16d2e4",
+  "background_color": "#2196f3",
+  "display": "fullscreen",
+  "Scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "src/icons/icon-63x72.png",
+      "sizes": "63x72",
+      "type": "image/png"
+    },
+    {
+      "src": "src/icons/icon-84x96.png",
+      "sizes": "84x96",
+      "type": "image/png"
+    },
+    {
+      "src": "src/icons/icon-112x128.png",
+      "sizes": "112x128",
+      "type": "image/png"
+    },
+    {
+      "src": "src/icons/icon-126x144.png",
+      "sizes": "126x144",
+      "type": "image/png"
+    },
+    {
+      "src": "src/icons/icon-133x152.png",
+      "sizes": "133x152",
+      "type": "image/png"
+    },
+    {
+      "src": "src/icons/icon-168x192.png",
+      "sizes": "168x192",
+      "type": "image/png"
+    },
+    {
+      "src": "src/icons/icon-336x384.png",
+      "sizes": "336x384",
+      "type": "image/png"
+    },
+    {
+      "src": "src/icons/icon-448x512.png",
+      "sizes": "448x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}

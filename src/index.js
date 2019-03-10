@@ -3,7 +3,24 @@ const API_BASE = "https://jsonplaceholder.typicode.com/"
 const API = API_BASE + "posts/"
 
 window.onload = function () {
-  console.log('hello world')
+  console.log('installing service worker')
+  installServiceWorkerAsync();
+
+  if (!navigator.onLine) {
+    document.querySelector('#history').innerHTML = "It appears you are not connected to the internet."
+  }
+}
+
+// Install the service worker
+async function installServiceWorkerAsync() {
+  if ('serviceWorker' in navigator) {
+    try {
+      let serviceWorker = await navigator.serviceWorker.register('/../sw.js')
+      console.log(`Service worker registered ${serviceWorker}`)
+    } catch (err) {
+      console.error(`Failed to register service worker: ${err}`)
+    }
+  }
 }
 
 // generate item tag from a Javascript Object that containt the item information
@@ -32,19 +49,15 @@ function addItemToHistoryTag(item) {
 }
 
 // load the item from the internet and place it on a target element
-async function onOkButtonClickAsync() {
+function onOkButtonClickAsync() {
   let targetElementId = '#main'
   let id = document.querySelector("#id-input").value
-  try {
-    const response = await fetch(API + id)
-    if (!response.ok) return document.querySelector(targetElementId).innerHTML = build404(id);
-
-    let item = await response.json()
-
+  fetch(API + id).then(response => {
+    return response.json();
+  }).then(item => {
     document.querySelector(targetElementId).innerHTML = buildItemMarkup(item)
-
-    updateHistory(item)
-  } catch (err) {
-    console.error(`error ${err}`)
-  }
+  }).catch(error => {
+    console.log(error)
+    document.querySelector('#history').innerHTML = 'There was a problem while executing your query.'
+  })
 }
